@@ -1,0 +1,150 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #000;
+    color: #fff;
+    font-family: system-ui, Arial, sans-serif
+}
+
+canvas {
+    display: block
+}
+
+.hidden {
+    display: none
+}
+
+/* ensure that when .modal has .hidden it really goes away */
+.modal.hidden {
+    display: none;
+}
+
+
+.vcenter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%
+}
+
+.big {
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    margin: .5rem;
+    border: none;
+    border-radius: .5rem;
+    background: #444;
+    color: #fff
+}
+
+.huge {
+    font-size: 3rem;
+    padding: 2rem 3.5rem;
+    border-radius: 50%;
+    border: none;
+    background: #28a;
+    color: #fff;
+    user-select: none
+}
+
+.icon {
+    position: fixed;
+    top: .5rem;
+    right: .5rem;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    z-index: 1000
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999
+}
+
+.modalContent {
+    background: #222;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+    min-width: 260px
+}
+
+.modalContent label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem
+}
+
+.modalContent input[type=number] {
+    width: 4rem
+}
+
+@media(orientation:landscape) {
+    .huge {
+        font-size: 2.5rem;
+        padding: 1.5rem 3rem
+    }
+}
+
+
+/* Both the player-select and the +1 screen occupy the exact same area */
+#roleSelect,
+#playArea {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* When we toggle .hidden, it really goes away (no flex overrides) */
+#roleSelect.hidden,
+#playArea.hidden {
+    display: none !important;
+}
+
+/* Split the two “I am Player” buttons 50/50 on load */
+#roleSelect {
+    display: flex;
+    flex-direction: column;
+}
+
+#roleSelect .big {
+    flex: 1;
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    font-size: 2rem;
+}
+
+/* Make the “+1” fill the entire area when it’s visible */
+#playArea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#playArea .huge {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border-radius: 0;
+    font-size: 4rem;
+}

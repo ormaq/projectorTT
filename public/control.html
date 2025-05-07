@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Score Control</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body class="control">
+    <div id="roleSelect" class="vcenter"><button id="p1Btn" class="big">I am Player 1</button><button id="p2Btn"
+            class="big">I am Player 2</button></div>
+    <div id="playArea" class="hidden vcenter"><button id="tapBtn" class="huge">+1</button></div>
+    <button id="settingsBtn" class="icon" aria-label="settings">⚙️</button>
+    <div id="settingsModal" class="modal hidden">
+        <div class="modalContent">
+            <label>Player 1 <input type="number" id="score1Input" min="0"></label>
+            <label>Player 2 <input type="number" id="score2Input" min="0"></label>
+            <label>Server <select id="serverSelect">
+                    <option value="0">Player 1</option>
+                    <option value="1">Player 2</option>
+                </select></label>
+            <label><input type="checkbox" id="alignChk"> Alignment box</label>
+            <label><input type="checkbox" id="effectChk" checked> Show effects</label>
+            <button id="resetBtn">Reset</button>
+            <button id="closeSettings" class="big">Close</button>
+        </div>
+    </div>
+    <script src="control.js"></script>
+</body>
+
+</html>
