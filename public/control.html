@@ -10,9 +10,21 @@
 </head>
 
 <body class="control">
-    <div id="roleSelect" class="vcenter"><button id="p1Btn" class="big">I am Player 1</button><button id="p2Btn"
-            class="big">I am Player 2</button></div>
-    <div id="playArea" class="hidden vcenter"><button id="tapBtn" class="huge">+1</button></div>
+    <div id="roleSelect" class="vcenter">
+        <button id="p1Btn" class="big">I am Player 1</button>
+        <button id="p2Btn" class="big">I am Player 2</button>
+        <button id="eitherBtn" class="big">Score for Either Player</button>
+    </div>
+
+    <div id="playArea" class="hidden vcenter">
+        <button id="tapBtn" class="hidden huge">+1</button>
+
+        <div id="eitherPlayerControls" class="hidden player-controls-container">
+            <button id="tapP1BtnInEitherMode" class="hidden huge">+1 P1</button>
+            <button id="tapP2BtnInEitherMode" class="hidden huge">+1 P2</button>
+        </div>
+    </div>
+
     <button id="settingsBtn" class="icon" aria-label="settings">⚙️</button>
     <div id="settingsModal" class="modal hidden">
         <div class="modalContent">
@@ -24,6 +36,21 @@
                 </select></label>
             <label><input type="checkbox" id="alignChk"> Alignment box</label>
             <label><input type="checkbox" id="effectChk" checked> Show effects</label>
+            <label>Background
+                <select id="backgroundSelect">
+                    <option value="defaultBlack">Default Black</option>
+                    <option value="deepBlue">Deep Blue</option>
+                    <option value="forestGreen">Forest Green</option>
+                    <option value="slateGray">Slate Gray</option>
+                    <option value="rainbowCycle">Rainbow Cycle</option>
+                    <option value="gentleFade">Gentle Fade</option>
+                    <option value="colorRaindrops">Color Raindrops</option>
+                    <option value="horizontalWave">Horizontal Wave</option>
+                    <option value="starfield">Starfield</option>
+                </select>
+            </label>
+            <label><input type="checkbox" id="borderChk"> Show White Border</label>
+            <label><input type="checkbox" id="freeplayChk"> Freeplay</label>
             <button id="resetBtn">Reset</button>
             <button id="closeSettings" class="big">Close</button>
         </div>

@@ -1,7 +1,7 @@
 {
   "name": "table-tennis-display",
   "version": "1.0.0",
-  "description": "Projector scoreboard & mobile control for table‑tennis using p5.js and socket.io",
+  "description": "Projector scoreboard & mobile control for table-tennis using p5.js and socket.io",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

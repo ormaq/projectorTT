@@ -148,3 +148,16 @@ canvas {
     border-radius: 0;
     font-size: 4rem;
 }
+
+.player-controls-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+.player-controls-container .big {
+    padding: 15px 25px;
+    min-width: 350px;
+    height: 100px;
+}

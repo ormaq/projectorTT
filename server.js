@@ -9,22 +9,23 @@ const io = new Server(server);
 // serve static assets
 app.use(express.static("public"));
 
-// Add this route to serve control.html
 app.get('/control', (req, res) => {
   res.sendFile(__dirname + '/public/control.html');
 });
 
 // ---------- Application state ----------
 const state = {
-  scores: [0, 0],      // [player1, player2]
-  serverIdx: 0,        // 0 | 1 – who is serving
-  alignMode: false,    // draw 9×5 calibration box
-  showEffects: true    // enable random animations
+  scores: [0, 0],
+  serverIdx: 0,
+  alignMode: false,
+  showEffects: true,
+  backgroundMode: "defaultBlack",
+  showBorder: false,
+  freeplay: false,
 };
 
 // ---------- WebSocket events ----------
 io.on("connection", socket => {
-  // send current state to newly‑connected client
   socket.emit("state", state);
 
   // Increment a player's score (data = 0 | 1)
@@ -35,7 +36,6 @@ io.on("connection", socket => {
     }
   });
 
-  // Overwrite part of the state (e.g. from settings panel)
   socket.on("setState", partial => {
     Object.assign(state, partial);
     broadcast();
@@ -54,5 +54,5 @@ function broadcast() {
 
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
-  console.log(`🏓  Table‑tennis scoreboard running on http://localhost:${PORT}`);
+  console.log(`🏓  Table-tennis scoreboard running on http://localhost:${PORT}`);
 });
